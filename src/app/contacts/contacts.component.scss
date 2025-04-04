@@ -36,6 +36,11 @@ td:last-child {
   border-right: none;
 }
 
+th {
+  background-color: var(--color-primary);
+  color: var(--font-color-dark-bg);
+}
+
 .center {
   text-align: center;
 }
