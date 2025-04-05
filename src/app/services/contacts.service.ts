@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, delay, map, Observable, throwError } from 'rxjs';
 import { Contact } from '../models/contact.model';
 import { nanoid } from 'nanoid';
 
@@ -49,6 +49,7 @@ export class ContactsService {
     }
 
     return this.http.put<Contact>('api/contacts/', contact, headers).pipe(
+      delay(3000),
       catchError((err) => {
         const message = 'Could not create the contact';
         console.log(message, err);
