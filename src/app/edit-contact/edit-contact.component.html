@@ -16,15 +16,30 @@
           name="lastName"
         />
         <input
+          type="date"
           placeholder="Date of Birth"
           [(ngModel)]="contact.dateOfBirth"
           name="dateOfBirth"
         />
-        <input
-          placeholder="Favorites Ranking"
-          [(ngModel)]="contact.favoritesRanking"
-          name="favoritesRanking"
-        />
+        <div>
+          <span>Favorites Ranking:</span>
+          <input
+            type="range"
+            min="0"
+            max="5"
+            [(ngModel)]="contact.favoritesRanking"
+            name="favoritesRanking"
+          />
+          <span>{{ contact.favoritesRanking }}</span>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            [(ngModel)]="contact.personal"
+            name="personal"
+          />
+          Personal
+        </div>
       </div>
     </section>
     <section>
@@ -39,26 +54,14 @@
           <img src="../../assets/plus-grey-blue.png" alt="add" class="add" />
         </div>
         <div class="radio">
-          <input
-            type="radio"
-            value="mobile"
-            [(ngModel)]="contact.phone.phoneType"
-            name="phoneType"
-          />Mobile
-          <input
-            type="radio"
-            value="work"
-            [(ngModel)]="contact.phone.phoneType"
-            name="phoneType"
-          />
-          Work
-          <input
-            type="radio"
-            value="other"
-            [(ngModel)]="contact.phone.phoneType"
-            name="phoneType"
-          />
-          Other
+          <span *ngFor="let phoneType of phoneTypes">
+            <input
+              type="radio"
+              [value]="phoneType.value"
+              [(ngModel)]="contact.phone.phoneType"
+              name="phoneType"
+            />{{ phoneType.title }}
+          </span>
         </div>
       </div>
     </section>
@@ -90,11 +93,25 @@
             name="postalCode"
           />
           <select [(ngModel)]="contact.address.addressType" name="addressType">
-            <option value="home">Home</option>
-            <option value="work">Work</option>
-            <option value="other">Other</option>
+            <option
+              *ngFor="let addressType of addressTypes"
+              [value]="addressType.value"
+            >
+              {{ addressType.title }}
+            </option>
           </select>
         </div>
+      </div>
+    </section>
+    <section>
+      <nav>Notes</nav>
+      <div>
+        <textarea
+          rows="3"
+          placeholder="Notes"
+          [(ngModel)]="contact.note"
+          name="note"
+        ></textarea>
       </div>
     </section>
     <div class="buttons">
