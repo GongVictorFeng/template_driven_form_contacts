@@ -5,10 +5,11 @@ import { ContactsService } from '../services/contacts.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RestrictedWordsValidator } from '../validators/restricted-words-validator.directive';
 
 @Component({
   selector: 'app-edit-contact',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RestrictedWordsValidator],
   templateUrl: './edit-contact.component.html',
   styleUrl: './edit-contact.component.scss',
 })

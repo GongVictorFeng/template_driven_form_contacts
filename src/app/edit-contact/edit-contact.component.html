@@ -137,7 +137,13 @@
           placeholder="Notes"
           [(ngModel)]="contact.note"
           name="note"
+          [restrictedWords]="['foo', 'bar']"
+          #note="ngModel"
+          [class.error]="note.invalid"
         ></textarea>
+        <em *ngIf="note.errors?.['restrictedWords']"
+          >Restricted words found: {{note.errors?.['restrictedWords']}}</em
+        >
       </div>
     </section>
     <div class="buttons">
