@@ -12,6 +12,10 @@ export class ContactsService {
 
   getContact(id: string): Observable<Contact> {
     return this.http.get<Contact>(`api/contacts/${id}`).pipe(
+      map((contact) => {
+        const dob = contact.dateOfBirth ? new Date(contact.dateOfBirth) : null;
+        return { ...contact, dateOfBirth: dob };
+      }),
       catchError((err) => {
         const message = 'Could not get contact';
         console.log(message, err);

@@ -2,7 +2,7 @@ export interface Contact {
   id: string;
   firstName: string;
   lastName: string;
-  dateOfBirth: string;
+  dateOfBirth: Date | null;
   favoritesRanking: number | null;
   personal: boolean;
   phone: Phone;

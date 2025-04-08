@@ -6,10 +6,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RestrictedWordsValidator } from '../validators/restricted-words-validator.directive';
+import { DateValueAccessorDirective } from '../date-value-accessor/date-value-accessor.directive';
 
 @Component({
   selector: 'app-edit-contact',
-  imports: [CommonModule, FormsModule, RestrictedWordsValidator],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RestrictedWordsValidator,
+    DateValueAccessorDirective,
+  ],
   templateUrl: './edit-contact.component.html',
   styleUrl: './edit-contact.component.scss',
 })
@@ -20,7 +26,7 @@ export class EditContactComponent implements OnInit {
     id: '',
     firstName: '',
     lastName: '',
-    dateOfBirth: '',
+    dateOfBirth: null,
     favoritesRanking: 0,
     personal: false,
     phone: {
