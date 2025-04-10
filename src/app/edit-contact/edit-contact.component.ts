@@ -7,6 +7,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RestrictedWordsValidator } from '../validators/restricted-words-validator.directive';
 import { DateValueAccessorDirective } from '../date-value-accessor/date-value-accessor.directive';
+import { ProfileIconSelectorComponent } from '../profile-icon-selector/profile-icon-selector.component';
 
 @Component({
   selector: 'app-edit-contact',
@@ -15,6 +16,7 @@ import { DateValueAccessorDirective } from '../date-value-accessor/date-value-ac
     FormsModule,
     RestrictedWordsValidator,
     DateValueAccessorDirective,
+    ProfileIconSelectorComponent,
   ],
   templateUrl: './edit-contact.component.html',
   styleUrl: './edit-contact.component.scss',
