@@ -26,6 +26,7 @@ export class EditContactComponent implements OnInit {
   addressTypes = AddressTypes;
   contact: Contact = {
     id: '',
+    profileIcon: '',
     firstName: '',
     lastName: '',
     dateOfBirth: null,
