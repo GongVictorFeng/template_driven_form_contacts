@@ -72,6 +72,10 @@ export class EditContactComponent implements OnInit {
       .subscribe(() => this.router.navigate(['/contacts']));
   }
 
+  onCancel() {
+    this.router.navigate(['/contacts']);
+  }
+
   addPhone() {
     this.contact.phones.push({
       phoneNumber: '',
