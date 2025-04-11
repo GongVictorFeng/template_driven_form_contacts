@@ -1,6 +1,6 @@
 <div class="content">
   <h1 class="header">Edit Contact</h1>
-  <form (ngSubmit)="onSave(contactForm)" #contactForm="ngForm">
+  <form (ngSubmit)="onSave()" #contactForm="ngForm">
     <section>
       <nav>Name/Info</nav>
       <div>
@@ -61,25 +61,36 @@
       </div>
     </section>
     <section>
-      <nav>Phone</nav>
-      <div class="flex-column" ngModelGroup="phone">
-        <div class="flex-group">
-          <input
-            placeholder="Phone"
-            [(ngModel)]="contact.phone.phoneNumber"
-            name="phoneNumber"
-          />
-          <img src="../../assets/plus-grey-blue.png" alt="add" class="add" />
-        </div>
-        <div class="radio">
-          <span *ngFor="let phoneType of phoneTypes">
+      <nav>Phones</nav>
+      <div class="flex-column" ngModelGroup="phones">
+        <div
+          class="flex-column"
+          *ngFor="let phone of contact.phones; let i = index"
+        >
+          <div class="flex-group">
             <input
-              type="radio"
-              [value]="phoneType.value"
-              [(ngModel)]="contact.phone.phoneType"
-              name="phoneType"
-            />{{ phoneType.title }}
-          </span>
+              placeholder="Phone"
+              [(ngModel)]="phone.phoneNumber"
+              name="phoneNumber{{ i }}"
+            />
+            <img
+              *ngIf="i === contact.phones.length - 1"
+              src="../../assets/plus-grey-blue.png"
+              alt="add"
+              class="add"
+              (click)="addPhone()"
+            />
+          </div>
+          <div class="radio">
+            <span *ngFor="let phoneType of phoneTypes">
+              <input
+                type="radio"
+                [value]="phoneType.value"
+                [(ngModel)]="phone.phoneType"
+                name="phoneType{{ i }}"
+              />{{ phoneType.title }}
+            </span>
+          </div>
         </div>
       </div>
     </section>

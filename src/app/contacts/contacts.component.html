@@ -25,7 +25,9 @@
         >
           <td>{{ contact.firstName }} {{ contact.lastName }}</td>
           <td>
-            <span *ngIf="contact.phone">{{ contact.phone.phoneNumber }}</span>
+            <span *ngIf="contact.phones[0]">{{
+              contact.phones[0].phoneNumber
+            }}</span>
           </td>
           <td *ngIf="contact.address">
             {{ contact.address.streetAddress }}, {{ contact.address.city }},
@@ -54,7 +56,9 @@
         >
           <td>{{ contact.firstName }} {{ contact.lastName }}</td>
           <td>
-            <span *ngIf="contact.phone">{{ contact.phone.phoneNumber }}</span>
+            <span *ngIf="contact.phones[0]">{{
+              contact.phones[0].phoneNumber
+            }}</span>
           </td>
           <td *ngIf="contact.address">
             {{ contact.address.streetAddress }}, {{ contact.address.city }},
