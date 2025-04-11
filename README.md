@@ -1,6 +1,10 @@
 # TemplateDrivenFormContacts
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+This project was created to learn the template driven form, it has a list of contacts, the form contains the information of each contact, each field is binded to the data model with validators.
+
+![contacts](src/assets/contact.png)
+
+![form](src/assets/form.png)
 
 ## Development server
 
