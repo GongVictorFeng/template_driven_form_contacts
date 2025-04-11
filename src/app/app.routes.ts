@@ -18,4 +18,5 @@ export const routes: Routes = [
     component: EditContactComponent,
     title: 'Contacts - Edit',
   },
+  { path: '', redirectTo: '/contacts', pathMatch: 'full' },
 ];
